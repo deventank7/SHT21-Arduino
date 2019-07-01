@@ -6,6 +6,9 @@
 #define TRIGGER_TEMP_MEASURE_NOHOLD  0xF3
 #define TRIGGER_HUMD_MEASURE_NOHOLD  0xF5
 
+float temperature, humidity;
+char temp[4], hum[4];
+
 void setup()
 {
   Wire.begin(18, 19);
@@ -14,8 +17,7 @@ void setup()
 
 void loop()
 {
-  float temperature, humidity;
-  char temp[4], hum[4];
+
   temperature = getTemperature();
   humidity = getHumidity();
   sprintf(temp, "%f", temperature);
